@@ -27,6 +27,7 @@ like functions, variables etc on the hardware level.
  * %f - for float.
  * %c - for char.
  * %s - for char*.
+ * %p - for printing memory address.
  * %zu - for sizeof.
  EG: `printf("%d", int_variable)`
 
@@ -65,3 +66,40 @@ struct Emp emp = {
 in way1, if the ordering changed for some reason, u need to change ur initialization again(as i said struct in c is
 ordered along with memory by placing data types next in the block),
 
+## Pointer
+    This is an important concept in c, and this is why i decided to recap c ->
+memory -> Memory is a phsical location on our computer(could be ram or rom), ram is kinda temproary if u turn of ur system it will belost
+and resetted, rom is permanent forever, but ram is kinda faster than rom, whenever we declare variables, it will take some 
+memory based on the datatype size, see below
+
+
+![c-pointers](./images/c_pointers.png "C pointers")
+
+From the above image if u can see, thats how every functions, variables etc will be placed inside the memory, and all
+the things that u see like (0x1, 0x2 etc) are memory addresses and it will be represent in hexadecimal to save some spaces.
+
+### Virtual Memory
+ Virtual memory is just an abstraction to our actual physical memory(RAM) that our operating system provides for simplicity
+security(so that applications don't mess with actual physical memory).
+
+Now coming to what is pointer? - A pointer is just a variable which holds a value of memory addresses. pointer variables are
+usually prepended by *, size of pointer variable will always be same(coz end of the day for any data type, pointer
+variable holds the memory)
+for EG: `int a = 10; int *aAddress = &a`, & is the address of operator, which gives the memory address of any variable.
+
+![c-pointers](./images/pointers_in_code.png "C pointers in action")
+
+## Array
+ As we know array are a block of stuffs with similar datatypes, in C array and pointer are closely related(also in every other
+ language, just we dont see it), if we declare an array in C(or any language) `int arr[3] = {2,3,4}`,
+ if u see we have declared an array of size 3 for int datatype. The variable arr doesn't actually hold the entire array value
+ instead it holds the pointer to the first value of the array(2), for eg: lets say this 2,3,4 recides in 0x1, 0x4, 0x8
+ arr variable holds 0x1, now whenever u do arr[0], it basically does arr + (datatype_size * index).
+
+    * arr[0]: 0x1 + (4 * 0) -> 0x1
+    * arr[1]: 0x1 + (4 * 1) -> 0x4
+    * arr[2]: 0x1 + (4 * 2) -> 0x8
+
+ Now you know why arrays are using 0 as starting index.
+
+## Strings

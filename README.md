@@ -103,3 +103,23 @@ for EG: `int a = 10; int *aAddress = &a`, & is the address of operator, which gi
  Now you know why arrays are using 0 as starting index.
 
 ## Strings
+ Strings in c are represented as `char *variable`, meaning this same as arrays to pointer.
+
+
+## Enums
+ Enums are kinda constants variable with value for EG:
+```C
+ENUM WeekDay (
+    MONDAY,
+    TUESDAY,
+    ...
+    SUNDAY
+)
+```
+
+## Malloc
+ This is the core thing in which c used to create a memory space. below will basically 
+creates 40bytes of contigous memory and give the first location to u(kinda dynamic array).
+```C
+int *memi = (int*)malloc(10 * sizeof(int))
+```

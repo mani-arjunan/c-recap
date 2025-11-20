@@ -123,3 +123,22 @@ creates 40bytes of contigous memory and give the first location to u(kinda dynam
 ```C
 int *memi = (int*)malloc(10 * sizeof(int))
 ```
+
+## Pointers to pointers
+ As we already know pointer is a variable that holds the memory address of another variable,
+```C
+    int a = 10;
+    int* aPtr = &a;// aPtr holds the address of a
+```
+pointers to pointers basically holds the memory address of another pointer, something like below
+```C
+    int a = 10;
+    int aPtr = &a;
+    int aPtrPtr = &aPtrPatr; // **aPtrPtr dereference the original a value 10;
+```
+
+## Array pointers
+ Array of pointers is basically pointer array where the values of array contains pointers.
+a good example would be array of strings.
+
+
